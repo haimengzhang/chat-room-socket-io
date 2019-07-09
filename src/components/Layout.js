@@ -5,6 +5,7 @@ import LoginForm from './LoginForm'
 import ChatContainer from './chats/ChatContainer'
 
 const socketUrl = "/"
+
 export default class Layout extends Component {
 	
 	constructor(props) {
@@ -27,10 +28,10 @@ export default class Layout extends Component {
 		const socket = io(socketUrl)
 
 		socket.on('connect', ()=>{
-			if(tjis.state.user){
+			if(this.state.user){
 				this.reconnect(socket)
 			} else{
-			console.log("Connected");
+				console.log("Connected");
 			}
 
 		})
